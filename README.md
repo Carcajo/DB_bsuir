@@ -1,4 +1,5 @@
 # Maxim Puhov, 153501
+https://drawsql.app/teams/carcajo/diagrams/lab-db
 Как тема курса я выбрал "Интернет-магазин"
 
 Сущности:
