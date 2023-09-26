@@ -26,76 +26,66 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>first_name VARCHAR(50) NOT NULL</li>
 <li>last_name VARCHAR(50) NOT NULL </li>
 <li>email VARCHAR(100) NOT NULL</li>
-<li>phone NOT NULL</li>
-</ul>
-
-Роли:
-<ul>
-<li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
-<li>название VARCHAR(50) NOT NULL</li>
-<li>описание VARCHAR(200) NOT NULL </li>
-<li>цена DECIMAL(8,2) NOT NULL</li>
-<li>изображение BLOB NOT NULL</li>
-<li>количество на складе INT NOT NULL</li>
+<li>FOREIGN KEY role_id REFERENCES role(id) NOT NULL</li>
 </ul>
 
 Товар:
 <ul>
 <li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
-<li>название VARCHAR(50) NOT NULL</li>
-<li>описание VARCHAR(200) NOT NULL </li>
-<li>цена DECIMAL(8,2) NOT NULL</li>
-<li>изображение BLOB NOT NULL</li>
-<li>количество на складе INT NOT NULL</li>
+<li>name VARCHAR(50) NOT NULL</li>
+<li>description VARCHAR(200) NOT NULL </li>
+<li>description DECIMAL(8,2) NOT NULL</li>
+<li>photo BLOB NOT NULL</li>
+<li>availability INT NOT NULL</li>
 </ul>
 
 -Категория:
 <ul>
 <li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
-<li>название VARCHAR(50) NOT NULL</li>
-<li>описание VARCHAR(200) NOT NULL</li>
+<li>name VARCHAR(50) NOT NULL</li>
+<li>description VARCHAR(200) NOT NULL</li>
 </ul>
 
 Заказ:
 <ul>
 <li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
-<li>дата создания DATE NOT NULL</li>
-<li>дата оплаты DATE NOT NULL</li>
-<li>дата доставки DATE NOT NULL</li>
+<li>date_of_create DATE NOT NULL</li>
+<li>date_of_payment DATE NOT NULL</li>
+<li>date_of_delivery DATE NOT NULL</li>
 <li>product_id BIGINT NOT NULL</li>
 </ul>
 
 Адрес:
 <ul>
 <li>id SERIAL PRIMARY KEY NOT NULL</li>
-<li>страна VARCHAR(50) NOT NULL</li>
-<li>город VARCHAR(50) NOT NULL</li>
-<li>улица VARCHAR(50) NOT NULL</li>
-<li>номер дома VARCHAR(3) NOT NULL</li>
-<li>индекс VARCHAR(10) NOT NULL</li>
+<li>country VARCHAR(50) NOT NULL</li>
+<li>city VARCHAR(50) NOT NULL</li>
+<li>street VARCHAR(50) NOT NULL</li>
+<li>house_number VARCHAR(3) NOT NULL</li>
+<li>index VARCHAR(10) NOT NULL</li>
 </ul>
 
 Способ оплаты:
 <ul>
 <li>id SERIAL PRIMARY KEY NOT NULL</li>
-<li>название VARCHAR(50) NOT NULL</li>
+<li>name VARCHAR(50) NOT NULL</li>
 </ul>
 
 Статус заказа:
 <ul>
 <li>id SERIAL PRIMARY KEY NOT NULL</li>
-<li>название VARCHAR(50) NOT NULL</li>
-<li>описание VARCHAR(200) NOT NULL</li>
+<li>name VARCHAR(50) NOT NULL</li>
+<li>description VARCHAR(200) NOT NULL</li>
 </ul>
 
 Промоакция:
 <ul>
 <li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
-<li>название VARCHAR(50) NOT NULL</li>
-<li>описание VARCHAR(200) NOT NULL</li>
-<li>дата начала DATE NOT NULL</li>
-<li>дата окончания DATE NOT NULL</li>
-<li>скидка INT NOT NULL</li>
+<li>name VARCHAR(50) NOT NULL</li>
+<li>description VARCHAR(200) NOT NULL</li>
+<li>date_of_start DATE NOT NULL</li>
+<li>date_of_finish DATE NOT NULL</li>
+<li>discount INT NOT NULL</li>
 </ul>
 
 Отзыв:
