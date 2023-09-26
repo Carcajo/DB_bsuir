@@ -25,7 +25,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
 <li>first_name VARCHAR(50) NOT NULL</li>
 <li>last_name VARCHAR(50) NOT NULL </li>
-<li>email VARCHAR(100) NOT NULL</li>
+<li>email VARCHAR(50) ~ '.@.+..' NOT NULL</li>
 <li>FOREIGN KEY role_id REFERENCES role(id) NOT NULL</li>
 </ul>
 
@@ -63,6 +63,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>street VARCHAR(50) NOT NULL</li>
 <li>house_number VARCHAR(3) NOT NULL</li>
 <li>index VARCHAR(10) NOT NULL</li>
+<li>FOREIGN KEY user_id REFERENCES user(id) NOT NULL</li>
 </ul>
 
 Способ оплаты:
