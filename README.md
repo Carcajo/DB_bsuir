@@ -5,6 +5,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 Сущности:
 <ul>
 <li>Пользователь - это человек, использующий магазин.</li>
+<li>Роли - разный уровень доступа и возможностей</li>
 <li>Товар - это продукт, который продается в интернет-магазине.</li>
 <li>Категория - это группа товаров, связанных по общему признаку.</li>
 <li>Заказ - это запрос клиента на покупку товаров.</li>
@@ -19,69 +20,100 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 
 Дополнительные параметры для каждой сущности:
 
+Пользователь:
+<ul>
+<li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
+<li>first_name VARCHAR(50) NOT NULL</li>
+<li>last_name VARCHAR(50) NOT NULL </li>
+<li>email VARCHAR(100) NOT NULL</li>
+<li>phone NOT NULL</li>
+</ul>
+
+Роли:
+<ul>
+<li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
+<li>название VARCHAR(50) NOT NULL</li>
+<li>описание VARCHAR(200) NOT NULL </li>
+<li>цена DECIMAL(8,2) NOT NULL</li>
+<li>изображение BLOB NOT NULL</li>
+<li>количество на складе INT NOT NULL</li>
+</ul>
+
 Товар:
 <ul>
-<li>название</li>
-<li>описание</li>
-<li>цена</li>
-<li>изображение</li>
-<li>количество на складе</li>
+<li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
+<li>название VARCHAR(50) NOT NULL</li>
+<li>описание VARCHAR(200) NOT NULL </li>
+<li>цена DECIMAL(8,2) NOT NULL</li>
+<li>изображение BLOB NOT NULL</li>
+<li>количество на складе INT NOT NULL</li>
 </ul>
 
 -Категория:
 <ul>
-<li>название</li>
-<li>описание</li>
-<li>изображения</li>
+<li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
+<li>название VARCHAR(50) NOT NULL</li>
+<li>описание VARCHAR(200) NOT NULL</li>
 </ul>
 
 Заказ:
 <ul>
-<li>дата создания</li>
-<li>дата оплаты</li>
-<li>дата доставки</li>
+<li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
+<li>дата создания DATE NOT NULL</li>
+<li>дата оплаты DATE NOT NULL</li>
+<li>дата доставки DATE NOT NULL</li>
+<li>product_id BIGINT NOT NULL</li>
 </ul>
 
 Адрес:
 <ul>
-<li>страна</li>
-<li>город</li>
-<li>улица</li>
-<li>номер дома</li>
-<li>индекс</li>
+<li>id SERIAL PRIMARY KEY NOT NULL</li>
+<li>страна VARCHAR(50) NOT NULL</li>
+<li>город VARCHAR(50) NOT NULL</li>
+<li>улица VARCHAR(50) NOT NULL</li>
+<li>номер дома VARCHAR(3) NOT NULL</li>
+<li>индекс VARCHAR(10) NOT NULL</li>
 </ul>
 
 Способ оплаты:
 <ul>
-<li>название</li>
-<li>описание</li>
+<li>id SERIAL PRIMARY KEY NOT NULL</li>
+<li>название VARCHAR(50) NOT NULL</li>
 </ul>
 
 Статус заказа:
 <ul>
-<li>название</li>
-<li>описание</li>
-</ul>
-
-Комментарий:
-<ul>
-<li>текст комментария</li>
+<li>id SERIAL PRIMARY KEY NOT NULL</li>
+<li>название VARCHAR(50) NOT NULL</li>
+<li>описание VARCHAR(200) NOT NULL</li>
 </ul>
 
 Промоакция:
 <ul>
-<li>название</li>
-<li>описание</li>
-<li>дата начала</li>
-<li>дата окончания</li>
-<li>скидка</li>
+<li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
+<li>название VARCHAR(50) NOT NULL</li>
+<li>описание VARCHAR(200) NOT NULL</li>
+<li>дата начала DATE NOT NULL</li>
+<li>дата окончания DATE NOT NULL</li>
+<li>скидка INT NOT NULL</li>
 </ul>
 
 Отзыв:
 <ul>
-<li>текст отзыва</li>
-<li>оценка</li>
-<li>дата публикации</li>
+<li>id SERIAL PRIMARY KEY NOT NULL</li>
+<li>text отзыва VARCHAR(300) NOT NULL</li>
+<li>mark INT NOT NULL</li>
+<li>order_id BIGINT NOT NULL</li>
+<li>user_id BIGINT NOT NULL</li>
+</ul>
+
+Корзина:
+<ul>
+<li>id BIGSERIAL PRIMARY KEY NOT NULL</li>
+<li>total_cost DECIMAL(8,2) NOT NULL</li>
+<li>number_of_products INT NOT NULL</li>
+<li>discount_on_the_total_cost INT NOT NULL</li>
+<li>finaly_cost DECIMAL(8,2) NOT NULL</li>
 </ul>
 
 В проекте "Интернет-магазин" можно выделить следующие роли:
@@ -111,4 +143,9 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>Оформлять заказы.</li>
 <li>Отслеживать статус заказов.</li>
 <li>Отправлять отзывы о товарах.</li>
+</ul>
+
+Неавторизованный пользователь:
+<ul>
+<li>Может просматривать каталог товаров</li>
 </ul>
