@@ -26,7 +26,8 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>first_name VARCHAR(50) NOT NULL</li>
 <li>last_name VARCHAR(50) NOT NULL </li>
 <li>email VARCHAR(50) ~ '.@.+..' NOT NULL</li>
-<li>FOREIGN KEY role_id REFERENCES role(id) NOT NULL</li>
+<li>FOREIGN KEY order_id REFERENCES order(id) NOT NULL</li>
+<li>FOREIGN KEY product_id REFERENCES product(id) NOT NULL</li>
 </ul>
 
 Товар:
@@ -37,6 +38,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>description DECIMAL(8,2) NOT NULL</li>
 <li>photo BLOB NOT NULL</li>
 <li>availability INT NOT NULL</li>
+<li>FOREIGN KEY category_id REFERENCES category(id) NOT NULL</li>
 </ul>
 
 -Категория:
@@ -53,6 +55,8 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>date_of_payment DATE NOT NULL</li>
 <li>date_of_delivery DATE NOT NULL</li>
 <li>product_id BIGINT NOT NULL</li>
+<li>FOREIGN KEY feedback  _id REFERENCES feedback(id) NOT NULL</li>
+<li>FOREIGN KEY product_id REFERENCES product(id) NOT NULL</li>
 </ul>
 
 Адрес:
@@ -70,6 +74,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <ul>
 <li>id SERIAL PRIMARY KEY NOT NULL</li>
 <li>name VARCHAR(50) NOT NULL</li>
+<li>FOREIGN KEY user_id REFERENCES user(id) NOT NULL</li>
 </ul>
 
 Статус заказа:
@@ -77,6 +82,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>id SERIAL PRIMARY KEY NOT NULL</li>
 <li>name VARCHAR(50) NOT NULL</li>
 <li>description VARCHAR(200) NOT NULL</li>
+<li>FOREIGN KEY order_id REFERENCES order(id) NOT NULL</li>
 </ul>
 
 Промоакция:
@@ -87,6 +93,8 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>date_of_start DATE NOT NULL</li>
 <li>date_of_finish DATE NOT NULL</li>
 <li>discount INT NOT NULL</li>
+<li>FOREIGN KEY user_id REFERENCES user(id) NOT NULL</li>
+<li>FOREIGN KEY product_id REFERENCES product(id) NOT NULL</li>
 </ul>
 
 Отзыв:
@@ -94,8 +102,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>id SERIAL PRIMARY KEY NOT NULL</li>
 <li>text отзыва VARCHAR(300) NOT NULL</li>
 <li>mark INT NOT NULL</li>
-<li>order_id BIGINT NOT NULL</li>
-<li>user_id BIGINT NOT NULL</li>
+<li>FOREIGN KEY user_id REFERENCES user(id) NOT NULL</li>
 </ul>
 
 Корзина:
@@ -105,6 +112,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>number_of_products INT NOT NULL</li>
 <li>discount_on_the_total_cost INT NOT NULL</li>
 <li>finaly_cost DECIMAL(8,2) NOT NULL</li>
+<li>FOREIGN KEY order_id REFERENCES order(id) NOT NULL</li>
 </ul>
 
 В проекте "Интернет-магазин" можно выделить следующие роли:
@@ -142,6 +150,5 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 </ul>
 
 
-
-![image](https://github.com/Carcajo/DB_bsuir/assets/93794796/493143e5-f284-46e5-823c-09606dc190a7)
+![image](https://github.com/Carcajo/DB_bsuir/assets/93794796/258bd2fd-a125-4217-8027-e2a4287f7c21)
 
