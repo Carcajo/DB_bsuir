@@ -57,6 +57,7 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <li>product_id BIGINT NOT NULL</li>
 <li>FOREIGN KEY feedback  _id REFERENCES feedback(id) NOT NULL</li>
 <li>FOREIGN KEY product_id REFERENCES product(id) NOT NULL</li>
+<li>FOREIGN KEY address_id REFERENCES address(id) NOT NULL</li>
 </ul>
 
 Адрес:
