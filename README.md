@@ -140,3 +140,8 @@ https://drawsql.app/teams/carcajo/diagrams/lab-db
 <ul>
 <li>Может просматривать каталог товаров</li>
 </ul>
+
+
+
+![image](https://github.com/Carcajo/DB_bsuir/assets/93794796/493143e5-f284-46e5-823c-09606dc190a7)
+
