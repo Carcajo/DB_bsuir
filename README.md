@@ -89,15 +89,15 @@
  9. "Пользователи":
 
     Поля:
-        ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
-        Имя ((VARCHAR(50), NN)
-        Фамилия ((VARCHAR(50), NN)
-        email(VARCHAR(100) ~ '.*@.+\..*')
-        ID Роли (INT, FOREIGN KEY REFERENCES Роли(ID))
+      ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
+      Имя ((VARCHAR(50), NN)
+      Фамилия ((VARCHAR(50), NN)
+      email(VARCHAR(100) ~ '.*@.+\..*')
+      ID Роли (INT, FOREIGN KEY REFERENCES Роли(ID))
     Связи:
-        Связь с таблицей "Роли" в отношении "Многие к одному" (Many-to-One) через поле ID Роли.
+      Связь с таблицей "Роли" в отношении "Многие к одному" (Many-to-One) через поле ID Роли.
 
-  10. "Статус заказа":
+  11. "Статус заказа":
     
      Поля:
         ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
