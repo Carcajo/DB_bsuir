@@ -27,14 +27,11 @@
     Поля:
         ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
         Дата создания (DATETIME, NN)
-        Сумма заказа (INT, NN)
         Количество товара(INT, NN)
         ID клиента (INT, FOREIGN KEY REFERENCES Клиенты(ID), NN)
-        ID цепи (INT, FOREIGN KEY REFERENCES Фрукты(ID), NN)
         
     Связи:
        Связь с таблицей "Клиенты" в отношении "Многие к одному" (Many-to-One) через поле ID клиента.
-       Связь с таблицей "Адрес" в отношении "Многие к одному" (Many-to-One) через поле ID цепи.
 
   3. "Заказ_Статус":
      Поля:
@@ -111,6 +108,19 @@
      Поля:
         ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
         статус(VARCHAR(50), NN)
+        ID цепи (INT, FOREIGN KEY REFERENCES цепь(ID))
+     Связи:
+        Связь с таблицей "Цепи" в отношении "Один ко многим" (Many-to-One) через поле ID цепи.
+        Связь с таблицей "Заказ" в отношении "Один ко многим" (Many-to-One) через поле ID заказа.
+
+  12."Доставка":
+  
+    Поля:
+      ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
+      ID заказа (INT, UNIQUE, NN)
+      Дата доставки (DATETIME, NN)
+    Связи:
+      Связь с таблицей "Заказы" в отношении "Один к одному" (One-to-One) через поле ID заказа.
               
 
 # 3. Use-case:
@@ -136,6 +146,8 @@
   
     Все, что и сотрудник
     CRUD ко всем моделям
-    
-![image](https://github.com/Carcajo/DB_bsuir/assets/93794796/258bd2fd-a125-4217-8027-e2a4287f7c21)
+
+
+    ![image](https://github.com/Carcajo/DB_bsuir/assets/93794796/92b7f7f4-419b-420e-9e43-a0e2e5f9490f)
+
 
