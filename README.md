@@ -148,6 +148,8 @@
     CRUD ко всем моделям
 
 
-    ![image](https://github.com/Carcajo/DB_bsuir/assets/93794796/92b7f7f4-419b-420e-9e43-a0e2e5f9490f)
+
+![image](https://github.com/Carcajo/DB_bsuir/assets/93794796/dc413f0e-f502-47ed-a835-308480a223e8)
+
 
 
