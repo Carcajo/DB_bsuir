@@ -97,23 +97,37 @@
     Связи:
       Связь с таблицей "Роли" в отношении "Многие к одному" (Many-to-One) через поле ID Роли.
 
+   10. "Адрес":
+
+    Поля:
+      ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
+      Город ((VARCHAR(50), NN)
+      Улица ((VARCHAR(50), NN)
+      Номер дома ((VARCHAR(3), NN)
+      Индекс ((VARCHAR(6), NN)
+      ID пользователь (INT, FOREIGN KEY REFERENCES Пользователь(ID))
+    Связи:
+      Связь с таблицей "Пользователь" в отношении "Многие к одному" (Many-to-One) через поле ID пользователя.
+
   11. "Статус заказа":
     
      Поля:
         ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
         статус(VARCHAR(50), NN)
 
-  11. "Корзина":
+  12. "Корзина":
     
      Поля:
         ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
-        статус(VARCHAR(50), NN)
+        Общая стоимость (DECIMAL(8,2), NN)
+        Количество товара (INT, NN)
         ID цепи (INT, FOREIGN KEY REFERENCES цепь(ID))
+        ID заказа (INT, FOREIGN KEY REFERENCES заказ(ID))
      Связи:
         Связь с таблицей "Цепи" в отношении "Один ко многим" (Many-to-One) через поле ID цепи.
         Связь с таблицей "Заказ" в отношении "Один ко многим" (Many-to-One) через поле ID заказа.
 
-  12."Доставка":
+  13."Доставка":
   
     Поля:
       ID (INT, PRIMARY KEY, AUTOINCREMENT, NN)
